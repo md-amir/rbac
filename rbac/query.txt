@@ -1,0 +1,6 @@
+select p.name from rbac_permission as p
+left join rbac_rolepermission as rp on p.id = rp.permission_id
+left join rbac_role as r on rp.role_id = r.id
+left join rbac_userrole as ur on r.id = ur.role_id
+left join auth_user as u on ur.user_id = u.id
+where u.id = 6
